@@ -2,85 +2,28 @@
 
 profile cd0c73c6_kopia flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
-  #include <abstractions/bash>
-  #include <abstractions/consoles>
-  #include <abstractions/nameservice>
-
+  
   capability net_bind_service,
-  capability setuid,
-  capability setgid,
-  capability sys_chroot,
   capability dac_read_search,
   capability dac_override,
-
-  # Permitir acceso a archivos de configuración
-  /app/config/** rwk,
-  /app/cache/** rwk,
-  /app/logs/** rwk,
-  /data/** rwk,
-  /share/** rwk,
-  /media/** rwk,
-
-  # Permitir ejecución del programa
-  /bin/kopia cx,
-  /usr/bin/kopia cx,
-  /app/kopia cx,
-  /** cx,
-
-  # Permitir acceso a sockets necesarios
+  
+  # Acceso básico a archivos
+  /app/** rwklix,
+  /data/** rwklix,
+  /share/** rwklix,
+  /media/** rwklix,
+  /tmp/** rwklix,
+  
+  # Ejecutables
+  /bin/* rix,
+  /usr/bin/* rix,
+  
+  # Sistema básico
+  /etc/passwd r,
+  /proc/** r,
+  /sys/** r,
+  
+  # Red
   network tcp,
   network udp,
-
-  # Acceso a archivos esenciales del sistema
-  /proc/sys/kernel/random/uuid r,
-  /etc/passwd r,
-  /etc/group r,
-  /etc/nsswitch.conf r,
-  /etc/ssl/certs/** r,
-  /etc/resolv.conf r,
-  /etc/hosts r,
-  /etc/hostname r,
-  /etc/localtime r,
-  /sys/devices/system/cpu/online r,
-
-  # Permitir acceso al sistema de archivos temporal
-  /tmp/** rwk,
-  /run/** rwk,
-
-  # Acceso al sistema de archivos para herramientas como find y jq
-  /bin/* ix,
-  /usr/bin/* ix,
-
-  # Archivos de certificados
-  /etc/ssl/certs/ca-certificates.crt r,
-
-  # Reglas para el sistema de archivos temporal
-  owner /tmp/** mrwlk,
-  owner /var/tmp/** mrwlk,
-  owner /dev/shm/** mrwlk,
-
-  # Acceso restringido al sistema de archivos
-  deny /boot/** rwklmx,
-  deny /dev/** rwklmx,
-  deny /efi/** rwklmx,
-  deny /etc/shadow rwklmx,
-  deny /etc/shadow- rwklmx,
-  deny /etc/shadow~ rwklmx,
-  deny /etc/gshadow rwklmx,
-  deny /etc/gshadow- rwklmx,
-  deny /etc/gshadow~ rwklmx,
-  deny /etc/sudoers rwklmx,
-  deny /etc/sudoers.d/** rwklmx,
-  deny /etc/ssh/** rwklmx,
-  deny /root/** rwklmx,
-  deny /srv/** rwklmx,
-  deny /opt/** rwklmx,
-  deny /sys/** rwklmx,
-  deny /var/backups/** rwklmx,
-  deny /var/cache/** rwklmx,
-  deny /var/log/** rwklmx,
-  deny /var/mail/** rwklmx,
-  deny /var/opt/** rwklmx,
-  deny /var/spool/** rwklmx,
-  deny /var/tmp/** rwklmx,
 }
