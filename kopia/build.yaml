@@ -1,0 +1,6 @@
+build_from:
+  aarch64: "kopia/kopia:0.19.0"
+  amd64: "kopia/kopia:0.19.0"
+  armhf: "kopia/kopia:0.19.0"
+  armv7: "kopia/kopia:0.19.0"
+  i386: "kopia/kopia:0.19.0"
