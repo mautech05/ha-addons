@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-profile kopia flags=(attach_disconnected,mediate_deleted) {
+profile cd0c73c6_kopia flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
   #include <abstractions/bash>
   #include <abstractions/consoles>
