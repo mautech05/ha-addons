@@ -38,7 +38,7 @@ RUN apt-get update && \
     /root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
 
 # HA Ingress specifics
-RUN apk add --no-cache nginx
+RUN apk add nginx --no-cache
 
 ##################
 # 3 Install apps #
