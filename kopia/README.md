@@ -19,8 +19,6 @@ Kopia uses content-addressable storage for snapshots, which has many benefits:
 
    [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fmautech05%2Fha-addons)
 1. Install this add-on.
-1. Set the add-on options to your preferences.
-1. Start the add-on.
 1. Check the add-on logs to see if everything went well.
 1. Open the webUI and connect to or create your first repository.
 
