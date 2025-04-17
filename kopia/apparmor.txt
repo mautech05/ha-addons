@@ -1,29 +1,7 @@
 #include <tunables/global>
 
 profile cd0c73c6_kopia flags=(attach_disconnected,mediate_deleted) {
-  #include <abstractions/base>
-  
-  capability net_bind_service,
-  capability dac_read_search,
-  capability dac_override,
-  
-  # Acceso básico a archivos
-  /app/** rwklix,
-  /data/** rwklix,
-  /share/** rwklix,
-  /media/** rwklix,
-  /tmp/** rwklix,
-  
-  # Ejecutables
-  /bin/* rix,
-  /usr/bin/* rix,
-  
-  # Sistema básico
-  /etc/passwd r,
-  /proc/** r,
-  /sys/** r,
-  
-  # Red
-  network tcp,
-  network udp,
+  file,
+  capability,
+  network,
 }
