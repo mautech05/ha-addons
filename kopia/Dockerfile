@@ -41,7 +41,9 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y nginx && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /etc/nginx/http.d && \
+    chmod +x /usr/sbin/nginx
 
 ##################
 # 3 Install apps #
