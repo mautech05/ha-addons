@@ -27,6 +27,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
     KOPIA_PERSIST_CREDENTIALS_ON_CONNECT="false" \
     RCLONE_CONFIG="/app/rclone/rclone.conf"
 
+# Kopia specifics
 RUN apt-get update && \
     apt-get upgrade -y --with-new-pkgs && \
     apt-get install -y --no-install-recommends fuse3 ca-certificates curl tzdata && \
@@ -35,6 +36,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
     /var/tmp/* /usr/share/doc/ /usr/share/man/ /usr/share/locale/ \
     /root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
+
+# HA Ingress specifics
+RUN apk add --no-cache nginx
 
 ##################
 # 3 Install apps #
