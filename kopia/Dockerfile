@@ -37,14 +37,6 @@ RUN apt-get update && \
     /var/tmp/* /usr/share/doc/ /usr/share/man/ /usr/share/locale/ \
     /root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
 
-# HA Ingress specifics
-RUN apt-get update && \
-    apt-get install -y nginx && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    mkdir -p /etc/nginx/http.d && \
-    chmod +x /usr/sbin/nginx
-
 ##################
 # 3 Install apps #
 ##################
