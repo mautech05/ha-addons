@@ -1,0 +1,33 @@
+#include <tunables/global>
+
+profile cd0c73c6_kopia flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+  
+  capability net_bind_service,
+  capability dac_read_search,
+  capability dac_override,
+  
+  # Startup Script
+  /run.sh rix,
+  
+  # File access
+  /app/** rwklix,
+  /data/** rwklix,
+  /share/** rwklix,
+  /media/** rwklix,
+  /tmp/** rwklix,
+  /ssl/** rk,
+  
+  # Executables
+  /bin/* rix,
+  /usr/bin/* rix,
+  
+  # Basic system
+  /etc/passwd r,
+  /proc/** r,
+  /sys/** r,
+  
+  # Network
+  network tcp,
+  network udp,
+}
